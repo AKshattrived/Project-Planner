@@ -1,0 +1,110 @@
+/* ==================== GOOGLE FONTS ==================== */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+/* ==================== CSS Variables ==================== */
+:root {
+  --header-height: 5rem;
+
+  /* ========== Colors ========== */
+  --body-color: #292929;
+  --body-color-lighter: #2d2e30;
+  --container-black: #121212;
+  --container-purple: #bb86fc;
+  --container-blue: #3700b3;
+  --container-cyne: #03dac6;
+  --container-white: #ffffff;
+  --text-color-primary: #e4e6e9;
+  --text-color-secondary: #9aa0a6;
+  --blue-primary: #588be0;
+  --blue-secondary: #8ab4f8;
+  --text-white: #ffffff;
+  --text-black: #000000;
+
+  /* ========== Font and Typography ========== */
+  --body-font: "Noto Sans", sans-serif;
+
+  /* 0.5rem = 8px, 1rem = 16px, 1.5rem = 24px... */
+  --big-font-size: 2rem;
+  --title-font-size: 1.5rem;
+  --title-small-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* ========== Font Weight ========== */
+  --font-normal: 400;
+  --font-bold: 700;
+
+  /* ========== Z Index ========== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* font size for large devices */
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3rem;
+    --title-font-size: 2.25rem;
+    --title-small-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/* ==================== BASE ==================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 0 var(--header-height) 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color-lighter);
+  color: var(--text-color-primary);
+  font-weight: normal;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-color-primary);
+  font-weight: var(--font-normal);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: var(--header-height);
+}
+.header__title {
+  font-size: var(--big-font-size);
+}
+.header__date-year {
+  font-size: var(--smaller-font-size);
+}
+.header__date-date {
+  font-size: var(--title-small-font-size);
+}
