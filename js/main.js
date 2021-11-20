@@ -30,3 +30,20 @@ let dayN = now.getDay();
 let monthN = now.getMonth();
 headerDate.innerHTML =
   "" + day[dayN] + ", " + month[monthN] + " " + now.getDate();
+
+/* ==================== ADD BUTTONS ==================== */
+let addBtn = document.querySelector(".add__button");
+let addStageBtn = document.querySelector(".add__button-stage");
+let addTaskBtn = document.querySelector(".add__button-task");
+
+addBtn.addEventListener("click", () => {
+  if (addBtn.className === "add__button button") {
+    addBtn.className = "add__button button add-cancel";
+    addStageBtn.className = "add__button-stage button show-stage";
+    addTaskBtn.className = "add__button-task button show-task";
+  } else {
+    addBtn.className = "add__button button";
+    addStageBtn.className = "add__button-stage button";
+    addTaskBtn.className = "add__button-task button";
+  }
+});

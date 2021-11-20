@@ -18,6 +18,8 @@
   --blue-secondary: #8ab4f8;
   --text-white: #ffffff;
   --text-black: #000000;
+  --delete-color: hsl(0, 69%, 61%);
+  --delete-color-alt: hsl(0, 57%, 53%);
 
   /* ========== Font and Typography ========== */
   --body-font: "Noto Sans", sans-serif;
@@ -67,7 +69,7 @@ body {
   margin: 0 0 var(--header-height) 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--body-color-lighter);
+  background-color: var(--container-black);
   color: var(--text-color-primary);
   font-weight: normal;
 }
@@ -107,4 +109,87 @@ img {
 }
 .header__date-date {
   font-size: var(--title-small-font-size);
+}
+main {
+  /* border: 2px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==================== REUSABLE CLASSES ==================== */
+section {
+  /* border: 2px solid yellow; */
+  width: 85%;
+  /* background-color: var(--body-color); */
+  padding: 0.5rem 0.25rem;
+}
+
+/* ===================== BUTTONS =====================  */
+.button {
+  display: inline-block;
+  background-color: var(--blue-primary);
+  color: var(--body-color);
+  padding: 1rem;
+  border-radius: 00.5rem;
+  font-weight: var(--font-bold);
+}
+.button:hover {
+  background-color: var(--blue-secondary);
+}
+
+/* ==================== ADD BUTTONS ==================== */
+.add__button {
+  font-size: 2.25rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.4s;
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  z-index: var(--z-tooltip);
+}
+.add__button-stage,
+.add__button-task {
+  font-size: 2.25rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: var(--body-color);
+  color: var(--text-color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.4s;
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  z-index: calc(var(--z-tooltip)-1);
+}
+.add__button-stage:hover,
+.add__button-task:hover {
+  background-color: var(--body-color-lighter);
+  color: var(--text-color-primary);
+}
+/* Show stage and task */
+.show-task {
+  bottom: 15rem;
+}
+.show-stage {
+  bottom: 10rem;
+}
+/* add to cancel */
+.add-cancel {
+  background-color: var(--delete-color);
+  transform: rotate(-45deg);
+}
+.add-cancel:hover {
+  background-color: var(--delete-color-alt);
+  transform: rotate(-45deg);
 }
