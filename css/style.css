@@ -16,6 +16,7 @@
   --blue-secondary: #8ab4f8;
   --delete-color: hsl(0, 69%, 61%);
   --delete-color-alt: hsl(0, 57%, 53%);
+  --check-color-alt: hsl(130, 57%, 53%);
 
   /* ========== Font and Typography ========== */
   --body-font: "Josefin Sans", sans-serif;
@@ -115,14 +116,6 @@ img {
   text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
 }
 
-/* ==================== REUSABLE CLASSES ==================== */
-section {
-  /* border: 2px solid yellow; */
-  width: 85%;
-  /* background-color: var(--body-color); */
-  padding: 0.5rem 0.25rem;
-}
-
 /* ===================== BUTTONS =====================  */
 .button {
   display: inline-block;
@@ -133,9 +126,27 @@ section {
   padding: 1rem;
   border-radius: 00.5rem;
   font-weight: var(--font-bold);
+  cursor: pointer;
 }
 .button:hover {
   color: var(--blue-secondary);
+}
+
+.delete__button {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: var(--body-color);
+  color: var(--text-color-secondary);
+  padding: 0.25rem;
+  border-radius: 30%;
+  font-weight: var(--font-bold);
+  transition: 00.3s;
+  cursor: pointer;
+}
+.delete__button:hover {
+  box-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
+  color: var(--delete-color-alt);
 }
 
 /* ==================== ADD BUTTONS ==================== */
@@ -154,7 +165,6 @@ section {
   right: 5rem;
   bottom: 5rem;
   z-index: var(--z-tooltip);
-  cursor: pointer;
 }
 .add__button-stage,
 .add__button-task {
@@ -189,10 +199,57 @@ section {
 /* ==================== MAIN ==================== */
 
 main {
-  /* border: 2px solid red; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+section {
+  width: 70%;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  background-color: var(--body-color);
+  box-shadow: -9px -9px 16px var(--shadow-light),
+    9px 9px 16px var(--shadow-dark);
+  border-radius: 0.75rem;
+}
+
+/* ==================== PROJECT NAME ==================== */
+.project__section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.project__input {
+  width: 70%;
+  background-color: var(--body-color);
+  color: var(--text-color-primary);
+  font-family: var(--body-font);
+  font-size: var(--title-small-font-size);
+  border: none;
+  outline: none;
+  padding: 0.5rem 0;
+  transition: 0.3s;
+}
+.project__title {
+  width: 70%;
+  background-color: var(--body-color);
+  color: var(--text-color-primary);
+  font-family: var(--body-font);
+  font-size: var(--title-small-font-size);
+  border: none;
+  outline: none;
+  padding: 0.5rem 0;
+  transition: 0.3s;
+  font-weight: var(--font-medium);
+}
+.project__hide {
+  display: none;
+}
+.project__done {
+  transition: 0.3s;
+}
+
+.project__done:hover {
+  color: var(--check-color-alt);
 }

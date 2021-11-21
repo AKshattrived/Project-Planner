@@ -47,3 +47,52 @@ addBtn.addEventListener("click", () => {
     addTaskBtn.className = "add__button-task button";
   }
 });
+
+/* ==================== PROJECT NAME ==================== */
+let projectBtn = document.querySelector(".project__button"),
+  projectInput = document.querySelector(".project__input"),
+  projectBtnIcon = document.querySelector(".project__button-icon"),
+  projectTitle = document.querySelector(".project__title");
+
+//get project title from local storage
+let projectLocal = localStorage.getItem("project-title");
+if (projectLocal != null) {
+  projectTitle.innerHTML = projectLocal;
+  projectInput.className = "project__input project__hide";
+  projectTitle.className = "project__title";
+  projectBtnIcon.className = "uil uil-times project__button-icon";
+  projectBtn.className = "delete__button project__button";
+}
+
+projectInput.addEventListener("click", () => {
+  if (
+    projectBtnIcon.className ===
+    "uil uil-times project__button-icon project__hide"
+  ) {
+    projectBtnIcon.className = "uil uil-check project__button-icon";
+    projectBtn.className = "delete__button project__button project__done";
+  }
+});
+
+projectBtn.addEventListener("click", () => {
+  if (projectBtnIcon.className === "uil uil-check project__button-icon") {
+    projectTitle.innerHTML = projectInput.value;
+    projectInput.className = "project__input project__hide";
+    projectTitle.className = "project__title";
+    projectBtnIcon.className = "uil uil-times project__button-icon";
+    projectBtn.className = "delete__button project__button";
+    //add title to local storage
+    localStorage.setItem("project-title", projectInput.value);
+  } else if (
+    projectBtnIcon.className === "uil uil-times project__button-icon"
+  ) {
+    projectInput.value = "";
+    projectTitle.className = "project__title project__hide";
+    projectInput.className = "project__input";
+    projectBtnIcon.className =
+      "uil uil-times project__button-icon project__hide";
+    projectBtn.className = "project__button";
+    //remove title from local storage
+    localStorage.removeItem("project-title");
+  }
+});

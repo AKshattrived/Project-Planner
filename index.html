@@ -19,7 +19,10 @@
   <body>
     <!-- ===================== HEADER ===================== -->
     <header class="header" id="header">
-      <h1 class="header__title" id="header__title">Project Planner</h1>
+      <h1 class="header__title" id="header__title">
+        <i class="uil uil-layer-group"></i>
+        Project Planner
+      </h1>
       <div class="header__date" id="header__date">
         <div class="header__date-year">2021</div>
         <div class="header__date-date">Thu, Nov 12</div>
@@ -38,9 +41,20 @@
     </span>
     <!-- ===================== MAIN ===================== -->
     <main>
-      <!-- 
-        TODO: Take reference of click up, stage container with body color and text secondary shadow, try add buttons first with shadow, add buttons icon alignment
-       -->
+      <!-- ===================== PROJECT NAME ===================== -->
+      <section class="project__section">
+        <input
+          type="text"
+          class="project__input"
+          placeholder="What is the project you are working on?"
+        />
+
+        <div class="project__title project__hide">Project Name</div>
+
+        <div class="project__button">
+          <i class="uil uil-times project__button-icon project__hide"></i>
+        </div>
+      </section>
     </main>
 
     <!-- ===================== MAIN JS ===================== -->
