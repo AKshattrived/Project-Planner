@@ -10,7 +10,7 @@ let day = {
   4: "Thu",
   5: "Fri",
   6: "Sat",
-  7: "Sun",
+  0: "Sun",
 };
 let month = {
   0: "Jan",

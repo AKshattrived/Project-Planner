@@ -1,28 +1,24 @@
 /* ==================== GOOGLE FONTS ==================== */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500&display=swap");
 /* ==================== CSS Variables ==================== */
 :root {
   --header-height: 5rem;
 
   /* ========== Colors ========== */
-  --body-color: #292929;
-  --body-color-lighter: #2d2e30;
-  --container-black: #121212;
-  --container-purple: #bb86fc;
-  --container-blue: #3700b3;
-  --container-cyne: #03dac6;
-  --container-white: #ffffff;
+  --body-color: #303234;
+  --shadow-light: rgb(73, 73, 73, 0.4);
+  --shadow-dark: rgb(0, 0, 0, 0.4);
   --text-color-primary: #e4e6e9;
   --text-color-secondary: #9aa0a6;
-  --blue-primary: #588be0;
-  --blue-secondary: #8ab4f8;
   --text-white: #ffffff;
   --text-black: #000000;
+  --blue-primary: #588be0;
+  --blue-secondary: #8ab4f8;
   --delete-color: hsl(0, 69%, 61%);
   --delete-color-alt: hsl(0, 57%, 53%);
 
   /* ========== Font and Typography ========== */
-  --body-font: "Noto Sans", sans-serif;
+  --body-font: "Josefin Sans", sans-serif;
 
   /* 0.5rem = 8px, 1rem = 16px, 1.5rem = 24px... */
   --big-font-size: 2rem;
@@ -33,8 +29,10 @@
   --smaller-font-size: 0.75rem;
 
   /* ========== Font Weight ========== */
-  --font-normal: 400;
-  --font-bold: 700;
+  --font-thin: 100;
+  --font-normal: 300;
+  --font-medium: 400;
+  --font-bold: 500;
 
   /* ========== Z Index ========== */
   --z-tooltip: 10;
@@ -69,9 +67,9 @@ body {
   margin: 0 0 var(--header-height) 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--container-black);
+  background-color: var(--body-color);
   color: var(--text-color-primary);
-  font-weight: normal;
+  font-weight: var(--font-normal);
 }
 h1,
 h2,
@@ -103,20 +101,18 @@ img {
 }
 .header__title {
   font-size: var(--big-font-size);
+  font-weight: var(--font-bold);
+  text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
 }
 .header__date-year {
   font-size: var(--smaller-font-size);
+  font-weight: var(--font-bold);
+  text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
 }
 .header__date-date {
+  font-weight: var(--font-bold);
   font-size: var(--title-small-font-size);
-}
-main {
-  /* border: 2px solid red; */
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
 }
 
 /* ==================== REUSABLE CLASSES ==================== */
@@ -130,18 +126,22 @@ section {
 /* ===================== BUTTONS =====================  */
 .button {
   display: inline-block;
-  background-color: var(--blue-primary);
-  color: var(--body-color);
+  background-color: var(--body-color);
+  color: var(--blue-primary);
+  box-shadow: -9px -9px 16px var(--shadow-light),
+    9px 9px 16px var(--shadow-dark);
   padding: 1rem;
   border-radius: 00.5rem;
   font-weight: var(--font-bold);
 }
 .button:hover {
-  background-color: var(--blue-secondary);
+  color: var(--blue-secondary);
 }
 
 /* ==================== ADD BUTTONS ==================== */
-.add__button {
+.add__button,
+.add__button-stage,
+.add__button-task {
   font-size: 2.25rem;
   width: 3.75rem;
   height: 3.75rem;
@@ -154,42 +154,45 @@ section {
   right: 5rem;
   bottom: 5rem;
   z-index: var(--z-tooltip);
+  cursor: pointer;
 }
 .add__button-stage,
 .add__button-task {
-  font-size: 2.25rem;
-  width: 3.75rem;
-  height: 3.75rem;
-  background-color: var(--body-color);
   color: var(--text-color-secondary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  transition: 0.4s;
-  position: fixed;
-  right: 5rem;
-  bottom: 5rem;
   z-index: calc(var(--z-tooltip)-1);
+  visibility: hidden;
 }
 .add__button-stage:hover,
 .add__button-task:hover {
-  background-color: var(--body-color-lighter);
   color: var(--text-color-primary);
 }
 /* Show stage and task */
 .show-task {
+  visibility: visible;
   bottom: 15rem;
 }
 .show-stage {
+  visibility: visible;
   bottom: 10rem;
 }
 /* add to cancel */
 .add-cancel {
   background-color: var(--delete-color);
+  color: var(--text-color-primary);
   transform: rotate(-45deg);
 }
 .add-cancel:hover {
   background-color: var(--delete-color-alt);
-  transform: rotate(-45deg);
+  color: var(--text-color-secondary);
+}
+
+/* ==================== MAIN ==================== */
+
+main {
+  /* border: 2px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
