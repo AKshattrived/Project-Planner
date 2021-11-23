@@ -70,7 +70,7 @@ projectInput.addEventListener("click", () => {
     "uil uil-times project__button-icon project__hide"
   ) {
     projectBtnIcon.className = "uil uil-check project__button-icon";
-    projectBtn.className = "delete__button project__button project__done";
+    projectBtn.className = "delete__button project__button";
   }
 });
 
@@ -80,7 +80,6 @@ projectBtn.addEventListener("click", () => {
     projectInput.className = "project__input project__hide";
     projectTitle.className = "project__title";
     projectBtnIcon.className = "uil uil-times project__button-icon";
-    projectBtn.className = "delete__button project__button";
     //add title to local storage
     localStorage.setItem("project-title", projectInput.value);
   } else if (

@@ -16,7 +16,14 @@
   --blue-secondary: #8ab4f8;
   --delete-color: hsl(0, 69%, 61%);
   --delete-color-alt: hsl(0, 57%, 53%);
-  --check-color-alt: hsl(130, 57%, 53%);
+
+  /* ========== Shodows ========== */
+  --shadow-big: -9px -9px 16px var(--shadow-light),
+    9px 9px 16px var(--shadow-dark);
+  --shadow-medium: -4px -4px 8px var(--shadow-light),
+    4px 4px 8px var(--shadow-dark);
+  --shadow-small: -2px -2px 4px var(--shadow-light),
+    2px 2px 4px var(--shadow-dark);
 
   /* ========== Font and Typography ========== */
   --body-font: "Josefin Sans", sans-serif;
@@ -103,33 +110,32 @@ img {
 .header__title {
   font-size: var(--big-font-size);
   font-weight: var(--font-bold);
-  text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
+  text-shadow: var(--shadow-medium);
 }
 .header__date-year {
   font-size: var(--smaller-font-size);
   font-weight: var(--font-bold);
-  text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
+  text-shadow: var(--shadow-medium);
 }
 .header__date-date {
   font-weight: var(--font-bold);
   font-size: var(--title-small-font-size);
-  text-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
+  text-shadow: var(--shadow-medium);
 }
 
 /* ===================== BUTTONS =====================  */
 .button {
   display: inline-block;
   background-color: var(--body-color);
-  color: var(--blue-primary);
-  box-shadow: -9px -9px 16px var(--shadow-light),
-    9px 9px 16px var(--shadow-dark);
+  color: var(--text-color-secondary);
+  box-shadow: var(--shadow-medium);
   padding: 1rem;
   border-radius: 00.5rem;
   font-weight: var(--font-bold);
   cursor: pointer;
 }
 .button:hover {
-  color: var(--blue-secondary);
+  color: var(--text-color-primary);
 }
 
 .delete__button {
@@ -145,8 +151,8 @@ img {
   cursor: pointer;
 }
 .delete__button:hover {
-  box-shadow: -4px -4px 8px var(--shadow-light), 4px 4px 8px var(--shadow-dark);
-  color: var(--delete-color-alt);
+  color: var(--text-color-primary);
+  box-shadow: var(--shadow-small);
 }
 
 /* ==================== ADD BUTTONS ==================== */
@@ -168,14 +174,10 @@ img {
 }
 .add__button-stage,
 .add__button-task {
-  color: var(--text-color-secondary);
   z-index: calc(var(--z-tooltip)-1);
   visibility: hidden;
 }
-.add__button-stage:hover,
-.add__button-task:hover {
-  color: var(--text-color-primary);
-}
+
 /* Show stage and task */
 .show-task {
   visibility: visible;
@@ -209,8 +211,7 @@ section {
   margin: 1.5rem 0;
   padding: 1rem 0;
   background-color: var(--body-color);
-  box-shadow: -9px -9px 16px var(--shadow-light),
-    9px 9px 16px var(--shadow-dark);
+  box-shadow: var(--shadow-medium);
   border-radius: 0.75rem;
 }
 
@@ -243,13 +244,14 @@ section {
   transition: 0.3s;
   font-weight: var(--font-medium);
 }
+.project__button {
+  height: 1.75rem;
+  width: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
 .project__hide {
   display: none;
-}
-.project__done {
-  transition: 0.3s;
-}
-
-.project__done:hover {
-  color: var(--check-color-alt);
 }
