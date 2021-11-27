@@ -32,7 +32,7 @@
   --big-font-size: 2rem;
   --title-font-size: 1.5rem;
   --title-small-font-size: 1.25rem;
-  --normal-font-size: 0.938rem;
+  --normal-font-size: 1rem;
   --small-font-size: 0.813rem;
   --smaller-font-size: 0.75rem;
 
@@ -54,7 +54,7 @@
     --big-font-size: 3rem;
     --title-font-size: 2.25rem;
     --title-small-font-size: 1.5rem;
-    --normal-font-size: 1rem;
+    --normal-font-size: 1.2rem;
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.813rem;
   }
@@ -98,6 +98,13 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+section {
+  width: 85%;
+  background-color: var(--body-color);
+  box-shadow: var(--shadow-medium);
+  border-radius: 0.75rem;
+  padding: 1rem 0;
 }
 
 /* ==================== HEADER ==================== */
@@ -149,6 +156,8 @@ img {
   font-weight: var(--font-bold);
   transition: 00.3s;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 .delete__button:hover {
   color: var(--text-color-primary);
@@ -201,28 +210,19 @@ img {
 /* ==================== MAIN ==================== */
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-row-gap: 2rem;
+  padding-left: 2rem;
 }
-section {
-  width: 70%;
-  margin: 1.5rem 0;
-  padding: 1rem 0;
-  background-color: var(--body-color);
-  box-shadow: var(--shadow-medium);
-  border-radius: 0.75rem;
-}
-
 /* ==================== PROJECT NAME ==================== */
 .project__section {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 .project__input {
   width: 70%;
+  text-align: center;
   background-color: var(--body-color);
   color: var(--text-color-primary);
   font-family: var(--body-font);
@@ -234,10 +234,12 @@ section {
 }
 .project__title {
   width: 70%;
+  text-align: center;
   background-color: var(--body-color);
   color: var(--text-color-primary);
   font-family: var(--body-font);
   font-size: var(--title-small-font-size);
+  text-shadow: var(--shadow-small);
   border: none;
   outline: none;
   padding: 0.5rem 0;
@@ -254,4 +256,73 @@ section {
 }
 .project__hide {
   display: none;
+}
+
+/* ==================== STAGES ==================== */
+.stages__title {
+  margin-bottom: 3rem;
+}
+.stages__title h2 {
+  text-align: center;
+}
+.no__stages h3,
+.no__stages h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stages__container {
+  padding: 1rem;
+}
+
+.stage__data {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  column-gap: 1.5rem;
+}
+.stage__color {
+  border-top: 0.25rem solid var(--blue-primary);
+  box-shadow: var(--shadow-medium);
+  border-radius: 00.75rem;
+}
+.stage__card {
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.stage__name {
+  font-weight: var(--font-bold);
+  text-align: center;
+}
+.task__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+.stage__rounder {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-color-secondary);
+  border-radius: 50%;
+}
+
+.stage__line {
+  display: block;
+  width: 3px;
+  height: 100%;
+  background-color: var(--text-color-secondary);
+  transform: translate(10px, -7px);
+}
+
+.task__list li {
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.task__list li input,
+.task__list li i {
+  cursor: pointer;
 }

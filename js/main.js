@@ -81,7 +81,7 @@ projectBtn.addEventListener("click", () => {
     projectTitle.className = "project__title";
     projectBtnIcon.className = "uil uil-times project__button-icon";
     //add title to local storage
-    localStorage.setItem("project-title", projectInput.value);
+    localStorage.setItem("project-title", projectTitle.innerHTML);
   } else if (
     projectBtnIcon.className === "uil uil-times project__button-icon"
   ) {
